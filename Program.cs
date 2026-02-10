@@ -6,13 +6,10 @@ namespace Kassasystem1
     {
         static void Main(string[] args)
         {
+            InteractiveMenu.RunMenu();
+           //NewInteractiveMenu.RunNewMenu();
             /*
-             Skriv en meny med flera val till program i programmet.
-            Funktioner i menyn:
-                1. Ta betalt
-                2. Lägg till ny vara
-                3. Avsluta
-            Funktioner som lagras i kvittofil i 1:
+                Funktioner som lagras i kvittofil i 1:
                 Visa lista över produkter
                 Skapar nytt löpnummer
                 Registrera datum och tid
@@ -35,31 +32,16 @@ namespace Kassasystem1
                 Form/färg
                 Menyval: registrera kassapersonal
                 Kampanjpriser
-                UML diagram
-                
+                UML diagram*/
 
 
-             */
-            bool cont = true;
-            while (cont)
-            {
-                Console.BackgroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine("KASSAMENY");
-                Console.WriteLine("1: Ta betalt");
-                Console.WriteLine("2: Ändra varor");
-                Console.WriteLine("4: Lägg till kassör");
-                Console.WriteLine("3: Ändra kampanjer");
-                Console.WriteLine("5: Avsluta");
-
-                int choice = Convert.ToInt32(Console.ReadLine());
-
-                if (choice == 1)
-                {
-                    //program 1
-                }
 
 
-            }
+
+
+
+
         }
     }
 }
+
