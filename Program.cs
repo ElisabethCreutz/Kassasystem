@@ -7,7 +7,13 @@ namespace Kassasystem1
         static void Main(string[] args)
         {
             InteractiveMenu.RunMenu();
-           //NewInteractiveMenu.RunNewMenu();
+            //NewInteractiveMenu.RunNewMenu();
+            /*
+            string prompt = "Kassan är nu öppen. Vad vill du göra?";
+            string[] options = { "Genomför köp", "Ändra produktlistan", "Lägg till kassör", "Ändra kampanjer", "Avsluta" };
+            ThirdInteractiveMenu mainMenu=new ThirdInteractiveMenu(prompt, options);
+            mainMenu.DisplayOptions();
+            */
             /*
                 Funktioner som lagras i kvittofil i 1:
                 Visa lista över produkter

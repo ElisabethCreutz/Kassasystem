@@ -17,6 +17,7 @@ namespace Kassasystem1
             string selectColour = "\u001b[32m";
             string resetColour = "\u001b[0m";
             Console.CursorVisible = false;
+
             while (!isSelected)
             {
                 Console.SetCursorPosition(left, top);
@@ -40,9 +41,23 @@ namespace Kassasystem1
                         isSelected = true;
                         break;
                 }
-                if (option == 2) { ProductDisplay.ShowProductList(); }//skriver ut programmet direkt, utan att valet gjorts
+                
             }
             Console.WriteLine("Du valde x");
+
+            Console.CursorVisible = true;
+                switch (option)
+                {
+                    case 1:
+                        break;
+                    case 2:
+                        ProductDisplay.ShowProductList();
+                        break;
+                }
+
+               if (option == 2) { ProductDisplay.ShowProductList(); }//skriver ut programmet direkt, utan att valet gjorts
+            
+            
         }
     }
 }
