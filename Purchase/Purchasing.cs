@@ -15,7 +15,7 @@ namespace Kassasystem1.Purchase
             currentPurchase.Clear();
             //lägg till menu-loop?
 
-            MenuForPurchase.PurchaseMenu();
+            MenuForPurchase.RunPurchaseMenu();
             //Innehåller grundmetod: 
             //samt meny för lägg till produkt
         }

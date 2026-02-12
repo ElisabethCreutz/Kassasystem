@@ -6,6 +6,9 @@ namespace Kassasystem1.Products
 {
     public class Product
     {
+        public static List<Product> productList = new(); //skapar en huvudlista??
+
+        public static int TotalProductId = 0;
         //Basic
         public int ProductId { get; set; }
         public string ProductName { get; set; } = string.Empty;
@@ -16,16 +19,17 @@ namespace Kassasystem1.Products
         public string ProductCategoryName { get; set; } = string.Empty;
         public string ProductCategoryPriceType { get; set; } = string.Empty;
 
-        public Product(int productId, string productName, decimal price, string productPriceType)
+        public Product(string productName, decimal price, string productPriceType)
         {
-            ProductId = productId;
+            ProductId = TotalProductId + 100;
             ProductName = productName;
             ProductPrice = price;
             ProductPriceType = productPriceType;
+
         }
-        public Product(int productId, string productName, decimal price, string productPriceType, int productCategoryId, string productCategoryName, string productCategoryPriceType)
+        public Product(string productName, decimal price, string productPriceType, int productCategoryId, string productCategoryName, string productCategoryPriceType)
         {
-            ProductId = productId;
+            ProductId = TotalProductId + 100;
             ProductName = productName;
             ProductPrice = price;
             ProductPriceType = productPriceType;
@@ -33,5 +37,7 @@ namespace Kassasystem1.Products
             ProductCategoryName = productCategoryName;
             ProductCategoryPriceType = productCategoryPriceType;
         }
+        
+
     }
 }

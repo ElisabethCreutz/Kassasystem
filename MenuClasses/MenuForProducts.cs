@@ -1,29 +1,25 @@
-﻿using System;
+﻿using Kassasystem1.Products;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Kassasystem1.MenuClasses
 {
-    internal class MenuForPurchase
+    internal class MenuForProducts
     {
-        public static void RunPurchaseMenu()
+        public static void RunEditProductsMenu()
         {
-            //allows cashier to choose between
-            //"add Product to purchase items"
-            //"remove item from Purchase"
-            //"edit item in Purchase"
-            //"press pay"
 
-            string prompt = "Här genomför du köpet, välj med piltangenterna och tryck enter";
-            string[] options = { "Lägg till vara i köpet", "Ta bort vara från köpet", 
-                "Redigera antal av befintlig vara", "Slutför köp-betalning", "Skriv ut senaste kvittot"};
+
+            string prompt = "Här kan du redigera produktlistan";
+            string[] options = { "Visa produktlistan", "Lägg till ny produkt", "Ta bort produkt", "Ändra befintlig produkt", "Tillbaka till huvudmenyn" };
             Menu mainMenu = new Menu(prompt, options);
             int userChoice = mainMenu.RunMenu();
 
             switch (userChoice)
             {
                 case 0:
-                    
+                    ProductDisplay.ShowProductList();
                     break;
                 case 1:
                     

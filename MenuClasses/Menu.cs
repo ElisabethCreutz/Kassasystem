@@ -58,10 +58,15 @@ namespace Kassasystem1.MenuClasses
                 }
             }
             while (keyPressed != ConsoleKey.Enter);
-            Console.WriteLine("Press any key to exit");
-            Console.ReadKey(true);
+            //Console.WriteLine("Press any key to continue");
+            //Console.ReadKey(true);
             return SelectedIndex;
         }
-
+        public static void ExitGame()
+        {
+            Console.WriteLine("Tryck på valfri tangent för att fortsätta...");
+            Console.ReadKey(true);
+            Environment.Exit(0);
+        }
     }
 }
