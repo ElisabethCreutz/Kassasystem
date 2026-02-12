@@ -7,9 +7,9 @@ namespace Kassasystem1.Products
     public class ProductDisplay
     {
         public static void ShowProductList() {
-            foreach product in Produ
+            //foreach product in 
             
-            Console.WriteLine("Products");
+            //Console.WriteLine("Products");
         }
     }
 }

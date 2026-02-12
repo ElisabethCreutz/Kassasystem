@@ -17,7 +17,7 @@ namespace Kassasystem1.Products
         Product[] addProductArray= new Product[1];//creates an array that adds the number of products in []
             addProductArray[0]= new Product(100, "Mjölk",19.50m,"styck"); //skapa metod i annan klass som ger en userinput
             
-            File.AppendAllLines(filepathProd,addProductArray);
+           // File.AppendAllLines(filepathProd,addProductArray);
         }
         public void EditProducts()
         { 

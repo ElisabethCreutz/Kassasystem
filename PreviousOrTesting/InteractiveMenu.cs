@@ -1,9 +1,10 @@
 ﻿using Kassasystem1.Products;
+using Kassasystem1.Purchase;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kassasystem1
+namespace Kassasystem1.PreviousOrTesting
 {
     public class InteractiveMenu
     {
@@ -42,23 +43,34 @@ namespace Kassasystem1
                         isSelected = true;
                         break;
                 }
-                
+
             }
             Console.WriteLine("Du valde x");
 
             Console.CursorVisible = true;
-                switch (option)
-                {
-                    case 1:
-                        break;
-                    case 2:
-                        ProductDisplay.ShowProductList();
-                        break;
-                }
+            switch (option)
+            {
+                case 1:
+                    Purchasing.NewPurchase();
+                    break;
+                case 2:
+                    ProductDisplay.ShowProductList();
+                    break;
+                case 3:
+                    //lägg till kassör
+                    break;
+                case 4:
+                    //Hantera kampanjer
+                    break;
+                case 5:
+                    break;
+                default:
+                    break;
+            }
 
-               if (option == 2) { ProductDisplay.ShowProductList(); }//skriver ut programmet direkt, utan att valet gjorts
-            
-            
+            if (option == 2) { ProductDisplay.ShowProductList(); }//skriver ut programmet direkt, utan att valet gjorts
+
+
         }
     }
 }

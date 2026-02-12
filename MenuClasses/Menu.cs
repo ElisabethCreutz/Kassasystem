@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Channels;
 
-namespace Kassasystem1
+namespace Kassasystem1.MenuClasses
 {
-    public class ThirdInteractiveMenu
+    internal class Menu
     {
         private int SelectedIndex;
         private string[] Options;
         private string Prompt;
 
-        public ThirdInteractiveMenu(string prompt, string[] options)
+        public Menu(string prompt, string[] options)
         {
             Prompt = prompt;
             Options = options;
@@ -23,9 +22,17 @@ namespace Kassasystem1
             for (int i = 0; i < Options.Length; i++)
             {
                 string currentOption = Options[i];
-                Console.WriteLine($">{currentOption}");
+                string colour;
+                if (i == SelectedIndex)
+                {
+                    colour = "\u001b[32m";
+                }
+                else
+                {
+                    colour = "";
+                }
+                Console.WriteLine($"{colour}>> {currentOption} <<\u001b[0m");
             }
         }
-       
     }
 }

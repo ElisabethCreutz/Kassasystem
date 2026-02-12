@@ -1,4 +1,5 @@
-﻿using Kassasystem1.Products;
+﻿using Kassasystem1.MenuClasses;
+using Kassasystem1.Products;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,8 +9,8 @@ namespace Kassasystem1.Purchase
     public class Purchasing
     {
         
-        public List<Product> currentPurchase = new List<Product>();
-        public void NewPurchase() 
+        public static List<Product> currentPurchase = new List<Product>();
+        public static void NewPurchase() 
         { 
             currentPurchase.Clear();
             //lägg till menu-loop?

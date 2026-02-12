@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.Design;
+﻿using Kassasystem1.MenuClasses;
+using System.ComponentModel.Design;
 
 namespace Kassasystem1
 {
@@ -6,9 +7,9 @@ namespace Kassasystem1
     {
         static void Main(string[] args)
         {
-
+            Menues.RunMainMenu();
             //innehåller bara länk till menyn
-            InteractiveMenu.RunMenu();
+            //InteractiveMenu.RunMenu();
             //NewInteractiveMenu.RunNewMenu();
             /*
             string prompt = "Kassan är nu öppen. Vad vill du göra?";

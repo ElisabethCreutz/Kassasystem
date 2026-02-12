@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kassasystem1
+namespace Kassasystem1.PreviousOrTesting
 {
     public class NewInteractiveMenu
     {

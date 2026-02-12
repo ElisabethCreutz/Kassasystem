@@ -6,10 +6,12 @@ namespace Kassasystem1.Products
 {
     public class Product
     {
+        //Basic
         public int ProductId { get; set; }
         public string ProductName { get; set; } = string.Empty;
         public decimal ProductPrice { get; set; }
         public string ProductPriceType { get; set; } = string.Empty;
+        //avancerat
         public int ProductCategoryId { get; set; }
         public string ProductCategoryName { get; set; } = string.Empty;
         public string ProductCategoryPriceType { get; set; } = string.Empty;
