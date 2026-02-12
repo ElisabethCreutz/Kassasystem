@@ -8,10 +8,11 @@ namespace Kassasystem1.MenuClasses
     {
         public static void RunMainMenu()
         {
+            
             string prompt = "Välkommen till xx";
             string[] options = { "Genomför köp", "Redigera produktlistan", "Lägg till kassör", "Ändra kampanjer", "Avsluta" };
             Menu mainMenu = new Menu(prompt, options);
-            mainMenu.DisplayOptions();
+            int userChoice=mainMenu.RunMenu();
         }
         public static void RunPurchaseMenu()
         {

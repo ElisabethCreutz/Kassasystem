@@ -16,7 +16,7 @@ namespace Kassasystem1.MenuClasses
             Options = options;
             SelectedIndex = 0;
         }
-        public void DisplayOptions()
+        private void DisplayOptions()
         {
             Console.WriteLine(Prompt);
             for (int i = 0; i < Options.Length; i++)
@@ -26,6 +26,8 @@ namespace Kassasystem1.MenuClasses
                 if (i == SelectedIndex)
                 {
                     colour = "\u001b[32m";
+                    //eller backgroundcolor/foregroundcolor olika
+                    //se https://www.youtube.com/watch?v=qAWhGEPMlS8 at 24:34
                 }
                 else
                 {
@@ -34,5 +36,32 @@ namespace Kassasystem1.MenuClasses
                 Console.WriteLine($"{colour}>> {currentOption} <<\u001b[0m");
             }
         }
+        public int RunMenu()
+        {
+            ConsoleKey keyPressed;
+            do
+            {
+                Console.Clear();
+                Visuals.Title();
+                DisplayOptions();
+
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                keyPressed = keyInfo.Key;
+
+                if (keyPressed == ConsoleKey.UpArrow) 
+                { SelectedIndex--;
+                    if (SelectedIndex == -1) { SelectedIndex = Options.Length - 1; }
+                }
+                else if (keyPressed == ConsoleKey.DownArrow) 
+                { SelectedIndex++;
+                    if (SelectedIndex == Options.Length) { SelectedIndex = 0; }
+                }
+            }
+            while (keyPressed != ConsoleKey.Enter);
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey(true);
+            return SelectedIndex;
+        }
+
     }
 }

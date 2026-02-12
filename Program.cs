@@ -7,6 +7,7 @@ namespace Kassasystem1
     {
         static void Main(string[] args)
         {
+            Visuals.Title();
             Menues.RunMainMenu();
             //innehåller bara länk till menyn
             //InteractiveMenu.RunMenu();
