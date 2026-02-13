@@ -12,29 +12,28 @@ namespace Kassasystem1.MenuClasses
 
 
             string prompt = "Här kan du redigera produktlistan";
-            string[] options = { "Visa produktlistan", "Lägg till ny produkt", "Ta bort produkt", "Ändra befintlig produkt", "Tillbaka till huvudmenyn" };
-            Menu mainMenu = new Menu(prompt, options);
-            int userChoice = mainMenu.RunMenu();
+            string[] options = { "Visa produktlistan", "Lägg till ny produkt", "Ändra befintlig produkt", "Ta bort produkt", "Tillbaka till huvudmenyn" };
+            Menu prodMenu = new Menu(prompt, options);
+            int userChoice = prodMenu.RunMenu();
 
             switch (userChoice)
             {
                 case 0:
                     ProductDisplay.ShowProductList();
+                    //EditProductList.PrintProductList();
                     break;
                 case 1:
-                    
+                    EditProductList.AddNewProduct();
                     break;
                 case 2:
-                    Console.WriteLine("Feature will be added soon...");
+                    EditProductList.EditProducts();
                     break;
                 case 3:
-                    Console.WriteLine("Feature will be added soon...");
+                    EditProductList.DeleteProduct();
                     break;
                 case 4:
-                    Console.WriteLine("Feature will be added soon...");
-                    break;
-                case 5:
-                    Menu.ExitGame();
+                    Console.WriteLine("Tillbaka till menyn");
+                    MainMenu.RunMainMenu();
                     break;
 
             }

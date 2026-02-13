@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Documents\ProductList\" />
+    <Folder Include="Documents\ProductListCsv\" />
     <Folder Include="Documents\ReceiptFiles\" />
   </ItemGroup>
 

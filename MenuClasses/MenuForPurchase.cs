@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kassasystem1.Purchase;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,43 +9,27 @@ namespace Kassasystem1.MenuClasses
     {
         public static void RunPurchaseMenu()
         {
-            //allows cashier to choose between
-            //"add Product to purchase items"
-            //"remove item from Purchase"
-            //"edit item in Purchase"
-            //"press pay"
-
             string prompt = "Här genomför du köpet, välj med piltangenterna och tryck enter";
-            string[] options = { "Lägg till vara i köpet", "Ta bort vara från köpet", 
-                "Redigera antal av befintlig vara", "Slutför köp-betalning", "Skriv ut senaste kvittot"};
-            Menu mainMenu = new Menu(prompt, options);
-            int userChoice = mainMenu.RunMenu();
+            string[] options = { "Lägg till vara i köpet", "Redigera varor i köpet", "Slutför köp-betalning", "Avbryt köp" };
+            Menu buyMenu = new Menu(prompt, options);
+            int userChoice = buyMenu.RunMenu();
 
             switch (userChoice)
             {
                 case 0:
-                    
+                    Purchasing.AddPurchaseItem();
                     break;
                 case 1:
-                    
+                    Purchasing.EditPurchaseItem();
                     break;
                 case 2:
-                    Console.WriteLine("Feature will be added soon...");
+                    Purchasing.CompletePurchase();
                     break;
                 case 3:
-                    Console.WriteLine("Feature will be added soon...");
+                    Purchasing.CancelPurchase();
                     break;
-                case 4:
-                    Console.WriteLine("Feature will be added soon...");
-                    break;
-                case 5:
-                    Menu.ExitGame();
-                    break;
-
             }
-
         }
-
     }
 }
 

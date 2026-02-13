@@ -6,21 +6,23 @@ namespace Kassasystem1.Products
 {
     public class EditProductList
     {
-        public string filepathProductList = "../../../Documents/ProductList/ProductList.csv";
-        public void CreateProductList()
+        public static List<Product> productList = new(); //skapar en huvudlista??
+
+        public static string filepathProductList = "../../../Documents/ProductList/ProductList.csv";
+        public static void PrintProductList()
         {
-            
+            Console.Clear();
             var allLines = File.ReadAllLines(filepathProductList);
             foreach (var line in allLines)
             {
                 Console.WriteLine(line);
             }
-          
-        }
-        public void AddNewProduct()
-        {
-            List<Product> addProductList = new ();//creates a list that adds the product in <>
 
+        }
+        public static void AddNewProduct()
+        {
+            List<Product> addProductList = new();//creates a list that adds the product in <>
+            Console.Clear();
             Console.Write("Vad heter produkten: ");
             string name = Console.ReadLine();
             Console.Write("Vad kostar den:");
@@ -29,12 +31,13 @@ namespace Kassasystem1.Products
             string type = Console.ReadLine();
             Product newProduct = new Product(name, price, type);
             addProductList.Add(newProduct);
+            var stringList = ProductDisplay.ConvertProductListToString(addProductList);
+            File.AppendAllLines(filepathProductList, stringList);//kraschar
 
-
-            File.AppendAllLines(filepathProductList,addProductList);
         }
-        public void EditProducts()
+        public static void EditProducts()
         {
+            Console.Clear();
             FileStream productFileStream = File.OpenWrite(filepathProductList);
             StreamWriter productStreamWriter = new StreamWriter(productFileStream);
             productStreamWriter.Write(3);
@@ -45,6 +48,9 @@ namespace Kassasystem1.Products
             productStreamWriter.Write("Hello2\n");
             productStreamWriter.Close();
         }
-        public void DeleteProduct() { }
+        public static void DeleteProduct()
+        {
+            Console.Clear();
+        }
     }
 }
