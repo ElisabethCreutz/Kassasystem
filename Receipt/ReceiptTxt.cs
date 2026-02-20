@@ -4,10 +4,12 @@ using System.Text;
 
 namespace Kassasystem1.Receipt
 {
-    internal class Receipt
+    internal class ReceiptTxt:IReceipt
     {
         public string ReceiptDate=DateTime.Now.ToShortDateString();
-       
+
+        public string Extension => throw new NotImplementedException();
+
         public void CreateReceipt()
         {
             ReceiptDate= DateTime.Now.ToShortDateString();//välj den som gör datum och klockslag
@@ -21,5 +23,9 @@ namespace Kassasystem1.Receipt
             }
         }
 
+        public void Write(string filename)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

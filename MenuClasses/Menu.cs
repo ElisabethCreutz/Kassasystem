@@ -48,25 +48,20 @@ namespace Kassasystem1.MenuClasses
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 keyPressed = keyInfo.Key;
 
-                if (keyPressed == ConsoleKey.UpArrow) 
-                { SelectedIndex--;
+                if (keyPressed == ConsoleKey.UpArrow)
+                {
+                    SelectedIndex--;
                     if (SelectedIndex == -1) { SelectedIndex = Options.Length - 1; }
                 }
-                else if (keyPressed == ConsoleKey.DownArrow) 
-                { SelectedIndex++;
+                else if (keyPressed == ConsoleKey.DownArrow)
+                {
+                    SelectedIndex++;
                     if (SelectedIndex == Options.Length) { SelectedIndex = 0; }
                 }
             }
             while (keyPressed != ConsoleKey.Enter);
-            //Console.WriteLine("Press any key to continue");
-            //Console.ReadKey(true);
             return SelectedIndex;
         }
-        public static void ExitGame()
-        {
-            Console.WriteLine("Tryck på valfri tangent för att fortsätta...");
-            Console.ReadKey(true);
-            Environment.Exit(0);
-        }
     }
+
 }

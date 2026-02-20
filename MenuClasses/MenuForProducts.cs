@@ -9,8 +9,6 @@ namespace Kassasystem1.MenuClasses
     {
         public static void RunEditProductsMenu()
         {
-
-
             string prompt = "Här kan du redigera produktlistan";
             string[] options = { "Visa produktlistan", "Lägg till ny produkt", "Ändra befintlig produkt", "Ta bort produkt", "Tillbaka till huvudmenyn" };
             Menu prodMenu = new Menu(prompt, options);
@@ -26,14 +24,15 @@ namespace Kassasystem1.MenuClasses
                     EditProductList.AddNewProduct();
                     break;
                 case 2:
-                    EditProductList.EditProducts();
+                    Product selectedProductToEdit = EditProductList.FindAndSelectProduct();
+                    EditProductList.EditProduct(selectedProductToEdit);
                     break;
                 case 3:
-                    EditProductList.DeleteProduct();
+                    Product selectedProductToDelete = EditProductList.FindAndSelectProduct();
+                    EditProductList.DeleteProduct(selectedProductToDelete);
                     break;
                 case 4:
-                    Console.WriteLine("Tillbaka till menyn");
-                    MainMenu.RunMainMenu();
+                    Console.WriteLine("Tillbaka till huvudmenyn");
                     break;
 
             }

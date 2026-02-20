@@ -1,5 +1,7 @@
 ﻿using Kassasystem1.MenuClasses;
+using Kassasystem1.Products;
 using System.ComponentModel.Design;
+using System.Runtime.InteropServices.Marshalling;
 
 namespace Kassasystem1
 {
@@ -7,15 +9,7 @@ namespace Kassasystem1
     {
         static void Main(string[] args)
         {
-            Visuals.Colors();
-            Visuals.Intro();
-            Console.ReadKey(true);
-            Visuals.Title();
-            MainMenu.RunMainMenu();
-            //innehåller bara länk till menyn
-            //InteractiveMenu.RunMenu();
-            //NewInteractiveMenu.RunNewMenu();
-            
+            RunProgram.SetupStore();
         }
     }
 }
