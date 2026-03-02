@@ -25,8 +25,8 @@ namespace Kassasystem1.MenuClasses
                         Purchasing.NewPurchase();
                         break;
                     case 1:
-                        //ProductDisplay.ShowProductList();//saknar funktion just nu
-                        ProductFileReader.ConvertProductFileToProductList();
+                        ProductDisplay.ShowProductList();
+                        //ProductFileReader.ConvertProductFileToProductList();
                         break;
                     case 2:
                         MenuForProducts.RunEditProductsMenu();

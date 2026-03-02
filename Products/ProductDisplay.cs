@@ -2,21 +2,30 @@
 {
     public class ProductDisplay
     {
-        public static List<Product> mainProductList = new(); //skapar en huvudlista?? Behövs den ens?
+        public static List<Product> mainProductList = new(); 
         public static void ShowProductList()
         {
-            ProductFileReader.ConvertProductFileToProductList();
+            //ProductFileReader.ConvertProductFileToProductList();
             foreach (Product item in mainProductList)
             {
-                Console.WriteLine($"{item.ProductId}: {item.ProductName} kostar {item.ProductPrice} per {item.ProductPriceType}");
+                Console.WriteLine($"ID {item.ProductId}: {item.ProductName} kostar {item.ProductPrice} per {item.ProductPriceType}");
             }
+            Console.ReadKey();
         }
         public static void FindProductInMainProductList() 
         {
             //söker upp en produkt i appens lista av produkter
-            //ProductWriter.mainProductList
         }
-        
+        public List<string> ConvertProductListToString()
+        {
+            List<string> stringList = new();
+            foreach (Product item in mainProductList)
+            {
+                string itemStr = ($"{item.ProductId}; {item.ProductName}; {item.ProductPrice}; {item.ProductPriceType}");
+                stringList.Add(itemStr);
+            }
+            return stringList;
+        }
 
 
     }

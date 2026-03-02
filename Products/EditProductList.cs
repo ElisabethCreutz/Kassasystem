@@ -9,30 +9,26 @@ namespace Kassasystem1.Products
     {
         public static void AddNewProduct()
         {
-            List<Product> temporaryProductList = new();//creates a list that adds the product in <>
-            var key = ConsoleKey.Escape;
+            
             string name = "";
             decimal price;
             string type;
             string answer;
+
             do
             {
                 Console.Clear();
-                Console.Write("Vad heter produkten: ");
-                name = Console.ReadLine();
-                Console.Write("Vad kostar den:");
-                price = decimal.Parse(Console.ReadLine()); //jämför felsökning med annan version
-                Console.Write("Är priset per kg eller per st? ");//vill helst ha en menyval för det istället för skrift
-                type = Console.ReadLine();
+                name=ProductUserInputControl.CheckProductNameInput();
+                price=ProductUserInputControl.CheckProductPriceInput();
+                type=ProductUserInputControl.CheckProductTypeInput();
                 Product newProduct = new Product(name, price, type);
                 newProduct.ProductId = Product.GetRecentProductId() + 10;
-                temporaryProductList.Add(newProduct);
-                Console.Write("\nContinue? Yes or No:");
+                ProductDisplay.mainProductList.Add(newProduct);
+                Console.Write("\nContinue? Yes or No: ");
                 answer = Console.ReadLine().ToLower();
             }
             while (answer != "no");
-            var stringList = WriteToProductFile.ConvertProductListToString(temporaryProductList);
-            WriteToProductFile.WriteProductStringListToFile(stringList);
+           
             return;
 
         }

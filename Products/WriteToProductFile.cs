@@ -8,18 +8,6 @@ namespace Kassasystem1.Products
     {
         public static string filepathProductList2 = "../../../Documents/ProductList/ProductList.txt";
 
-        
-        //Nedan metod borde kunna vara non-static och kopplad till mainProductList!
-        public static List<string> ConvertProductListToString(List<Product> temporaryProductList)
-        {
-            List<string> stringList = new();
-            foreach (Product item in temporaryProductList)
-            {
-                string itemStr = ($"{item.ProductId}; {item.ProductName}; {item.ProductPrice}; {item.ProductPriceType}");
-                stringList.Add(itemStr);
-            }
-            return stringList;
-        }
         public static void WriteProductStringListToFile(List<string> stringList)
         {
             File.AppendAllLines(filepathProductList2, stringList);
@@ -38,7 +26,9 @@ namespace Kassasystem1.Products
         //om jag vill att den kollar att filen finns innan, annars fylla på data
         public static void CheckProductFile()
         {
-            if (File.Exists("../../../Documents/Productlist/Productlist.txt")) return;
+            if (File.Exists("../../../Documents/Productlist/Productlist.txt")) 
+                ProductFileReader.ConvertProductFileToProductList();
+                return;
 
             string text = "10; Bananer; 29,90; kg\n" +
                           "20; Mjölk; 15,50; st\n";

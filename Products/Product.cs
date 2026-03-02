@@ -6,7 +6,7 @@ namespace Kassasystem1.Products
 {
     public class Product
     {
-        public static int TotalProductId = 0;
+        public static int LastUsedProductId = 0;
         public int ProductId { get; set; }
         public string ProductName { get; set; } = string.Empty;
         public decimal ProductPrice { get; set; }
@@ -14,7 +14,7 @@ namespace Kassasystem1.Products
 
         public Product(string productName, decimal price, string productPriceType)
         {
-            ProductId = TotalProductId + 10;
+            ProductId = LastUsedProductId + 10;
             ProductName = productName;
             ProductPrice = price;
             ProductPriceType = productPriceType;
@@ -30,10 +30,17 @@ namespace Kassasystem1.Products
 
         public static int GetRecentProductId()
         {
-            //hämta lista från filen 
-            //plocka ut första siffrorna innan ", "
-            //de högsta är TotalproductId
-            return TotalProductId;
+            if (ProductDisplay.mainProductList.Count == 0)
+            {
+                //hämta lista från filen 
+                //plocka ut första siffrorna innan ", "
+                //de högsta är TotalproductId
+            }
+            else 
+            {
+                //ta högsta productID från 
+            }
+            return LastUsedProductId;
         }
 
 
