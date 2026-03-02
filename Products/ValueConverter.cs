@@ -7,5 +7,7 @@ namespace Kassasystem1.Products
     internal class ValueConverter
     {
         //samlar metoder för att kontrollera värden som hämtas från listan?
+
+
     }
 }

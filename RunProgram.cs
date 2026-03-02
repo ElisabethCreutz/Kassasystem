@@ -10,7 +10,7 @@ namespace Kassasystem1
     {
         public static void SetupStore()
         {
-            ProductWriter.CheckProductFile();
+            ProductFileReader.CheckProductFile();
             Visuals.Intro();
 
             Visuals.Title();

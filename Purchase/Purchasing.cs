@@ -12,25 +12,32 @@ namespace Kassasystem1.Purchase
         public static void NewPurchase()
         {
             currentPurchase.Clear();
-           
+
             MenuForPurchase.RunPurchaseMenu();
             //Innehåller grundmetod: 
             //samt meny för lägg till produkt
         }
         public static void AddPurchaseItem()
         {
-            //lägger till en Produkt i currentPurchase
+            ProductDisplay.ShowProductList();
+            Console.WriteLine("Skriv in produktid och antal varor du vill lägga till i köpet: ");
+Console.ReadLine();
+            //todo: lägger till en Produkt i currentPurchase
+            //Här finns två kommandon:
+            //< produktid > < antal > ex 300 1, betyder lägg till en av produktid
+            //PAY = vi ”fejkar” att det betalas och kvittot sparas ned(se nedan) och vi kommer tillbaka till menyn
         }
         public static void EditPurchaseItem()
         {
-            // tryck blablabla för att komma till en EditPurchase-menu där du kan välja mellan
+            // todo: tryck blablabla för att komma till en EditPurchase-menu där du kan välja mellan
             // att redigera eller ta bort befintlig. Då omvandlas också listan till en array
             // som redigeras och sen skickar tillbaka en lista till currentPurchase-List<Products>
         }
-        public static void DeleteItem() { }
-        public static void EditItem() { }
-        public static void CompletePurchase() { }
-        public static void CancelPurchase() {
+        public static void DeleteItem() { }//todo
+        public static void EditItem() { }//todo
+        public static void CompletePurchase() { }//todo PAY
+        public static void CancelPurchase()
+        {
             Console.WriteLine("Köpet har avbrutits");
             MainMenu.RunMainMenu();
         }

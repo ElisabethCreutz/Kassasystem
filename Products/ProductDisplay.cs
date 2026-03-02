@@ -2,9 +2,11 @@
 {
     public class ProductDisplay
     {
-        public static void ShowProductList()//tänk om tänk rätt
+        public static List<Product> mainProductList = new(); //skapar en huvudlista?? Behövs den ens?
+        public static void ShowProductList()
         {
-            foreach (Product item in ProductWriter.mainProductList)
+            ProductFileReader.ConvertProductFileToProductList();
+            foreach (Product item in mainProductList)
             {
                 Console.WriteLine($"{item.ProductId}: {item.ProductName} kostar {item.ProductPrice} per {item.ProductPriceType}");
             }

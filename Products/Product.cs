@@ -20,6 +20,14 @@ namespace Kassasystem1.Products
             ProductPriceType = productPriceType;
 
         }
+        public Product(int productId, string productName, decimal productPrice, string productPriceType)
+        {
+            ProductId = productId;
+            ProductName = productName;
+            ProductPrice = productPrice;
+            ProductPriceType = productPriceType;
+        }
+
         public static int GetRecentProductId()
         {
             //hämta lista från filen 

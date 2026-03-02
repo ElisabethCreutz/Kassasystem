@@ -1,34 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace Kassasystem1.Products
 {
-    internal class ProductWriter
+    internal class WriteToProductFile
     {
-        public static List<Product> mainProductList = new(); //skapar en huvudlista?? Behövs den ens?
-        public static List<string> productsAsStrings = new();//skapar stränglistan
-        public static string filepathProductList = "../../../Documents/ProductList/ProductList.txt";
-        public static void ReadProductStringsFromFile()
-        {
-            var allLines = File.ReadAllLines(filepathProductList);
-            foreach (var line in allLines)
-            {
-                productsAsStrings.Add(line);
-            }
-            Console.ReadKey();
-        }
-        public static void ConvertStringsToProductList(List<string> tempString)
-        {
-                  foreach (var line in tempString)
-            {
-                
-                //lista ut något bra
-                
-            }  
+        public static string filepathProductList2 = "../../../Documents/ProductList/ProductList.txt";
 
-        }
+        
         //Nedan metod borde kunna vara non-static och kopplad till mainProductList!
         public static List<string> ConvertProductListToString(List<Product> temporaryProductList)
         {
@@ -42,14 +22,14 @@ namespace Kassasystem1.Products
         }
         public static void WriteProductStringListToFile(List<string> stringList)
         {
-            File.AppendAllLines(filepathProductList, stringList);//kraschar för att filen inte finns
+            File.AppendAllLines(filepathProductList2, stringList);
         }
 
         public static void WriteTest2()
         {
 
             //innehåller bara testmetod
-            FileStream productFileStream = File.OpenWrite(ProductWriter.filepathProductList);
+            FileStream productFileStream = File.OpenWrite(ProductFileReader.filepathProductList);
             StreamWriter productStreamWriter = new StreamWriter(productFileStream);
 
             productStreamWriter.Close();
@@ -64,6 +44,5 @@ namespace Kassasystem1.Products
                           "20; Mjölk; 15,50; st\n";
             File.WriteAllText("../../../Documents/Productlist/Productlist.txt", text);
         }
-
     }
 }

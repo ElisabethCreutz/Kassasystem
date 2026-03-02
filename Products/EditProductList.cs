@@ -31,8 +31,8 @@ namespace Kassasystem1.Products
                 answer = Console.ReadLine().ToLower();
             }
             while (answer != "no");
-            var stringList = ProductWriter.ConvertProductListToString(temporaryProductList);
-            ProductWriter.WriteProductStringListToFile(stringList);
+            var stringList = WriteToProductFile.ConvertProductListToString(temporaryProductList);
+            WriteToProductFile.WriteProductStringListToFile(stringList);
             return;
 
         }

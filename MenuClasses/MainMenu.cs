@@ -26,7 +26,7 @@ namespace Kassasystem1.MenuClasses
                         break;
                     case 1:
                         //ProductDisplay.ShowProductList();//saknar funktion just nu
-                        ProductWriter.ReadProductStringsFromFile();
+                        ProductFileReader.ConvertProductFileToProductList();
                         break;
                     case 2:
                         MenuForProducts.RunEditProductsMenu();
