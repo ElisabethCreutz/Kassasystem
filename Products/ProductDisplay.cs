@@ -5,7 +5,6 @@
         public static List<Product> mainProductList = new(); 
         public static void ShowProductList()
         {
-            //ProductFileReader.ConvertProductFileToProductList();
             foreach (Product item in mainProductList)
             {
                 Console.WriteLine($"ID {item.ProductId}: {item.ProductName} kostar {item.ProductPrice} per {item.ProductPriceType}");
@@ -14,7 +13,7 @@
         }
         public static void FindProductInMainProductList() 
         {
-            //söker upp en produkt i appens lista av produkter
+            //TODO: söker upp en produkt i appens lista av produkter
         }
         public static List<string> ConvertProductListToString()
         {

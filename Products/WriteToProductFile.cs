@@ -6,29 +6,24 @@ namespace Kassasystem1.Products
 {
     internal class WriteToProductFile
     {
-        public static string filepathProductList2 = "../../../Documents/ProductList/ProductList.txt";
-
         public static void WriteProductStringListToFile(List<string> stringList)
         {
-            File.WriteAllLines(filepathProductList2, stringList);
+            File.WriteAllLines(ProductFileReader.filepathProductList, stringList);
         }
+        //public static void WriteTest2()
+        //{
 
-        public static void WriteTest2()
-        {
+        //    //innehåller bara testmetod
+        //    FileStream productFileStream = File.OpenWrite(ProductFileReader.filepathProductList);
+        //    StreamWriter productStreamWriter = new StreamWriter(productFileStream);
 
-            //innehåller bara testmetod
-            FileStream productFileStream = File.OpenWrite(ProductFileReader.filepathProductList);
-            StreamWriter productStreamWriter = new StreamWriter(productFileStream);
-
-            productStreamWriter.Close();
-        }
-
-        //om jag vill att den kollar att filen finns innan, annars fylla på data
+        //    productStreamWriter.Close();
+        //}
         public static void CheckProductFile()
         {
-            if (File.Exists("../../../Documents/Productlist/Productlist.txt")) 
+            if (File.Exists("../../../Documents/Productlist/Productlist.txt"))
                 ProductFileReader.ConvertProductFileToProductList();
-                return;
+            return;
 
             string text = "10; Bananer; 29,90; kg\n" +
                           "20; Mjölk; 15,50; st\n";

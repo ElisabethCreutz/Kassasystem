@@ -15,18 +15,21 @@ namespace Kassasystem1.Products
             {
                 Console.Write("Ange produktnamn: ");
                 name = Console.ReadLine();
-                Regex.Replace(name, @"[^\w\.@-]", ""); //TODO: fixa ;
+                Regex reg = new Regex("[*'\",_#^@;]");
+                name = reg.Replace(name, string.Empty);
+                Regex reg1 = new Regex("[ ]{2,}");
+                name = reg1.Replace(name, " ");
+                name = name.Trim(' ');
             }
             while (name == "");
             return name;
-                    }
+        }
         public static decimal CheckProductPriceInput()
         {
             decimal price = 0;
             do
             {
                 Console.Write("Ange pris: ");
-                //int price = decimal.Parse(Console.ReadLine()); //jämför felsökning med annan version
                 var userPrice = Console.ReadLine();
                 try
                 {
@@ -34,7 +37,7 @@ namespace Kassasystem1.Products
                 }
                 catch
                 {
-                    Console.WriteLine("The price is not entered in a correct way, please try again.");
+                    Console.WriteLine("Något gick fel, försök igen.");
                 }
             }
             while (price <= 0);

@@ -38,7 +38,8 @@ namespace Kassasystem1.Products
             }
             else 
             {
-                //ta högsta productID från 
+                //ta högsta productID från mainproductlist
+                //sortera column[0]
             }
             return LastUsedProductId;
         }
