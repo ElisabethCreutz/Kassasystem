@@ -55,5 +55,20 @@ namespace Kassasystem1.Products
             while (type != "kg" && type != "st");
             return type;
         }
+        public static int CheckIntInput()
+        {
+            int number = 0;
+            do
+            {
+                string userinput = Console.ReadLine();
+                try
+                {
+                    number = Convert.ToInt32(userinput);
+                }
+                catch { Console.WriteLine("Något gick fel, försök igen."); }
+            }
+            while (number == 0);
+            return number;
+        }
     }
 }

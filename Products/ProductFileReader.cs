@@ -11,9 +11,9 @@ namespace Kassasystem1.Products
         public static void ConvertProductFileToProductList()
         {
             var allLines = File.ReadAllLines(filepathProductList);
+            allLines.Sort();
             foreach (var line in allLines)
             {
-                //productsAsStrings.Add(line);
                 string[] columns = line.Split(';');
                 int id = Convert.ToInt32(columns[0]);
                 string name = columns[1];

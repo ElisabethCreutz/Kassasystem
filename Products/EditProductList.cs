@@ -22,19 +22,17 @@ namespace Kassasystem1.Products
                 price = ProductUserInputControl.CheckProductPriceInput();
                 type = ProductUserInputControl.CheckProductTypeInput();
                 Product newProduct = new Product(name, price, type);
-                newProduct.ProductId = Product.GetRecentProductId() + 10;
+                newProduct.ProductId = Product.SetLastUsedProductId() + 10;
                 ProductDisplay.mainProductList.Add(newProduct);
                 Console.Write("\nContinue? Yes or No: ");
                 answer = Console.ReadLine().ToLower();
             }
             while (answer != "no");
-
             return;
 
         }
         public static Product FindAndSelectProduct()
         {
-            Console.Clear();
             Product selectedProduct = null;
             ProductDisplay.FindProductInMainProductList();
             //väljprodukt(plats i listan) som ska redigeras 

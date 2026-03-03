@@ -1,8 +1,10 @@
-﻿namespace Kassasystem1.Products
+﻿using System.Net.Http.Headers;
+
+namespace Kassasystem1.Products
 {
     public class ProductDisplay
     {
-        public static List<Product> mainProductList = new(); 
+        public static List<Product> mainProductList = new();
         public static void ShowProductList()
         {
             foreach (Product item in mainProductList)
@@ -11,8 +13,10 @@
             }
             Console.ReadKey();
         }
-        public static void FindProductInMainProductList() 
+        public static void FindProductInMainProductList()
         {
+            //mainProductList.Contains(item =>);
+            //var result = mainProductList.FindAll();
             //TODO: söker upp en produkt i appens lista av produkter
         }
         public static List<string> ConvertProductListToString()

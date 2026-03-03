@@ -28,18 +28,15 @@ namespace Kassasystem1.Products
             ProductPriceType = productPriceType;
         }
 
-        public static int GetRecentProductId()
+        public static int SetLastUsedProductId()
         {
             if (ProductDisplay.mainProductList.Count == 0)
             {
-                //hämta lista från filen 
-                //plocka ut första siffrorna innan ", "
-                //de högsta är TotalproductId
+                LastUsedProductId = 0;
             }
-            else 
+            else
             {
-                //ta högsta productID från mainproductlist
-                //sortera column[0]
+                LastUsedProductId = IDsorting.GetRecentProductId();
             }
             return LastUsedProductId;
         }
