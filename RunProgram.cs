@@ -18,6 +18,7 @@ namespace Kassasystem1
 
             Console.Clear();
             Console.WriteLine("Tack för besöket och välkommen åter!");
+            WriteToProductFile.WriteProductStringListToFile(ProductDisplay.ConvertProductListToString());
             Thread.Sleep(2000);
         }
     }

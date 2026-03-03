@@ -7,8 +7,6 @@ namespace Kassasystem1.Products
 {
     internal class ProductFileReader
     {
-
-        // public static List<string> productsAsStrings = new();//skapar stränglistan
         public static string filepathProductList = "../../../Documents/ProductList/ProductList.txt";
         public static void ConvertProductFileToProductList()
         {
@@ -18,8 +16,10 @@ namespace Kassasystem1.Products
                 //productsAsStrings.Add(line);
                 string[] columns = line.Split(';');
                 int id = Convert.ToInt32(columns[0]);
+                string name = columns[1];
                 decimal price = Convert.ToDecimal(columns[2]);
-                ProductDisplay.mainProductList.Add(new Product(id, columns[1], price, columns[3]));
+                string description = columns[3];
+                ProductDisplay.mainProductList.Add(new Product(id, name, price, description));
             }
         }
     }

@@ -16,12 +16,12 @@
         {
             //söker upp en produkt i appens lista av produkter
         }
-        public List<string> ConvertProductListToString()
+        public static List<string> ConvertProductListToString()
         {
             List<string> stringList = new();
             foreach (Product item in mainProductList)
             {
-                string itemStr = ($"{item.ProductId}; {item.ProductName}; {item.ProductPrice}; {item.ProductPriceType}");
+                string itemStr = ($"{item.ProductId};{item.ProductName};{item.ProductPrice};{item.ProductPriceType}");
                 stringList.Add(itemStr);
             }
             return stringList;

@@ -26,7 +26,6 @@ namespace Kassasystem1.MenuClasses
                         break;
                     case 1:
                         ProductDisplay.ShowProductList();
-                        //ProductFileReader.ConvertProductFileToProductList();
                         break;
                     case 2:
                         MenuForProducts.RunEditProductsMenu();

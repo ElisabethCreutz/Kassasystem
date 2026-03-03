@@ -10,7 +10,7 @@ namespace Kassasystem1.Products
 
         public static void WriteProductStringListToFile(List<string> stringList)
         {
-            File.AppendAllLines(filepathProductList2, stringList);
+            File.WriteAllLines(filepathProductList2, stringList);
         }
 
         public static void WriteTest2()
