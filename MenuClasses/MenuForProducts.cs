@@ -24,12 +24,10 @@ namespace Kassasystem1.MenuClasses
                     EditProductList.AddNewProduct();
                     break;
                 case 2:
-                    Product selectedProductToEdit = EditProductList.FindAndSelectProduct();
-                    EditProductList.EditProduct(selectedProductToEdit);
+                    EditProductList.EditProduct();
                     break;
                 case 3:
-                    Product selectedProductToDelete = EditProductList.FindAndSelectProduct();
-                    EditProductList.DeleteProduct(selectedProductToDelete);
+                    EditProductList.DeleteProduct();
                     break;
                 case 4:
                     Console.WriteLine("Tillbaka till huvudmenyn");

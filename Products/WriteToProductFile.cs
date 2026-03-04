@@ -10,15 +10,6 @@ namespace Kassasystem1.Products
         {
             File.WriteAllLines(ProductFileReader.filepathProductList, stringList);
         }
-        //public static void WriteTest2()
-        //{
-
-        //    //innehåller bara testmetod
-        //    FileStream productFileStream = File.OpenWrite(ProductFileReader.filepathProductList);
-        //    StreamWriter productStreamWriter = new StreamWriter(productFileStream);
-
-        //    productStreamWriter.Close();
-        //}
         public static void CheckProductFile()
         {
             if (File.Exists("../../../Documents/Productlist/Productlist.txt"))

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Transactions;
 
 namespace Kassasystem1.Products
 {
@@ -33,22 +34,24 @@ namespace Kassasystem1.Products
         }
         public static Product FindAndSelectProduct()
         {
-            Product selectedProduct = null;
-            ProductDisplay.FindProductInMainProductList();
-            //väljprodukt(plats i listan) som ska redigeras 
-
+            ProductDisplay.ShowProductList();
+            Console.WriteLine("\nSkriv produktId för produkten du vill ändra:");
+            int userID = ProductUserInputControl.CheckProductID();
+            Product selectedProduct = IDsorting.GetProductFromId(userID);
             return selectedProduct;
         }
-        public static void EditProduct(Product product)
-        {
-            MenuProductPart.EditMenu();
-            //redigera enbart vissa delar?
-        }
-        public static void DeleteProduct(Product product)
+        public static void EditProduct()
         {
             Console.Clear();
-            ProductDisplay.FindProductInMainProductList();
-            //radera ett objekt i listan
+            MenuProductPart.EditMenu(FindAndSelectProduct());
+        }
+        public static void DeleteProduct()
+        {
+            Console.Clear();
+           var productTodelete=FindAndSelectProduct();
+            ProductDisplay.mainProductList.Remove(productTodelete);
+
+            Console.WriteLine($"{productTodelete.ProductName} has been deleted.");
 
         }
     }

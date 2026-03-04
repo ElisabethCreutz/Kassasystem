@@ -1,6 +1,6 @@
 10;Bananer;29,90;kg
 20;Mjölk;15,50;st
-30;Mjölk;99,5;kg
+30;Sopkvast;99,5;st
 40;Bröd;35;st
 50;Vetemjöl;19,50;st
 60;Spagetti;22;st

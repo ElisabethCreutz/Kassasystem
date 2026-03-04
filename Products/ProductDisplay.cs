@@ -14,13 +14,8 @@ namespace Kassasystem1.Products
             {
                 Console.WriteLine($"\tID {item.ProductId}: {item.ProductName} kostar {item.ProductPrice} per {item.ProductPriceType}");
             }
-                  }
-        public static void FindProductInMainProductList()
-        {
-            //mainProductList.Contains(item =>);
-            //var result = mainProductList.FindAll();
-            //TODO: söker upp en produkt i appens lista av produkter
         }
+
         public static List<string> ConvertProductListToString()
         {
             List<string> stringList = new();

@@ -64,7 +64,7 @@ namespace Kassasystem1.Purchase
             {
                 //kontant betalning
             }
-            //PAY = vi ”fejkar” att det betalas och kvittot sparas ned(se nedan) och vi kommer tillbaka till menyn
+            //Todo: skriv ut kvittot...
         }
         public static void CancelPurchase()
         {

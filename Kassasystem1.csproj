@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="PreviousOrTesting\InteractiveMenu.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Documents\ProductList\" />
     <Folder Include="Documents\ReceiptFiles\" />
   </ItemGroup>
