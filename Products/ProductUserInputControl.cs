@@ -55,6 +55,21 @@ namespace Kassasystem1.Products
             while (type != "kg" && type != "st");
             return type;
         }
+        public static int CheckProductID()
+        {
+            int id = CheckIntInput();
+            
+                try
+                {
+                    ProductDisplay.mainProductList.First(p => p.ProductId == id);
+                }
+                catch {
+                    id = 0;
+                    Console.WriteLine("ProduktId finns inte, försök igen.");
+
+                }
+            return id;
+                   }
         public static int CheckIntInput()
         {
             int number = 0;

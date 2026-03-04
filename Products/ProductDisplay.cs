@@ -7,12 +7,14 @@ namespace Kassasystem1.Products
         public static List<Product> mainProductList = new();
         public static void ShowProductList()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Gamla Bettans nya fräscha varor i butiken:");
+            Console.ResetColor();
             foreach (Product item in mainProductList)
             {
-                Console.WriteLine($"ID {item.ProductId}: {item.ProductName} kostar {item.ProductPrice} per {item.ProductPriceType}");
+                Console.WriteLine($"\tID {item.ProductId}: {item.ProductName} kostar {item.ProductPrice} per {item.ProductPriceType}");
             }
-            Console.ReadKey();
-        }
+                  }
         public static void FindProductInMainProductList()
         {
             //mainProductList.Contains(item =>);

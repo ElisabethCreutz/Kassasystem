@@ -6,7 +6,7 @@
         {
             string prompt = "Vad vill du redigera?";
             string[] options = { "Produktnamn", "Pris", "Pristyp", "Tillbaka till huvudmenyn" };
-            Menu prodMenu = new Menu(prompt, options);
+            MenuStrategy prodMenu = new MenuStrategy(prompt, options);
             int userChoice = prodMenu.RunMenu();
 
             switch (userChoice)

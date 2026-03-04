@@ -16,7 +16,7 @@ namespace Kassasystem1.MenuClasses
             {
                 string prompt = "Välkommen till Gamla Bettans matbutik";
                 string[] options = { "Genomför köp", "Visa produktlistan", "Redigera produktlistan", "Ändra kampanjer", "Avsluta" };
-                Menu mainMenu = new Menu(prompt, options);
+                MenuStrategy mainMenu = new MenuStrategy(prompt, options);
                 int userChoice = mainMenu.RunMenu();
 
                 switch (userChoice)
@@ -26,6 +26,7 @@ namespace Kassasystem1.MenuClasses
                         break;
                     case 1:
                         ProductDisplay.ShowProductList();
+                        Console.ReadKey();
                         break;
                     case 2:
                         MenuForProducts.RunEditProductsMenu();

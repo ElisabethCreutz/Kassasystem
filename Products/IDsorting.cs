@@ -7,7 +7,7 @@ namespace Kassasystem1.Products
 {
     internal class IDsorting
     {
-        public static Product SelectedProduct {  get; set; }
+        public static Product SelectedProduct { get; set; }
         public static int GetRecentProductId()
         {
             List<int> idList = new();
@@ -19,28 +19,10 @@ namespace Kassasystem1.Products
             var last = idList.Count - 1;
             return last;
         }
-        public static bool FindProductID(int idNumber)
+        public static Product GetProductFromId(int id)
         {
-            if (ProductDisplay.mainProductList[0] == null)
-            {
-                return false;
-            }
-            else
-                foreach (var item in ProductDisplay.mainProductList)
-                {
-                    if (idNumber == item.ProductId)
-                        return true;
-                }
-            return false;
-        }
-        public static void GetProductFromId(int idNumber)
-        {
-            foreach (var item in ProductDisplay.mainProductList)
-            {
-                if (idNumber == item.ProductId)
-                    SelectedProduct = item;
-            }
-
+            SelectedProduct = ProductDisplay.mainProductList.First(p => p.ProductId == id);
+            return SelectedProduct;
         }
     }
 }

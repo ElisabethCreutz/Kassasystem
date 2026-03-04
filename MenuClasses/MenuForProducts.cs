@@ -11,14 +11,14 @@ namespace Kassasystem1.MenuClasses
         {
             string prompt = "Här kan du redigera produktlistan";
             string[] options = { "Visa produktlistan", "Lägg till ny produkt", "Ändra befintlig produkt", "Ta bort produkt", "Tillbaka till huvudmenyn" };
-            Menu prodMenu = new Menu(prompt, options);
+            MenuStrategy prodMenu = new MenuStrategy(prompt, options);
             int userChoice = prodMenu.RunMenu();
 
             switch (userChoice)
             {
                 case 0:
                     ProductDisplay.ShowProductList();
-                    //EditProductList.PrintProductList();
+                    Console.ReadKey();
                     break;
                 case 1:
                     EditProductList.AddNewProduct();

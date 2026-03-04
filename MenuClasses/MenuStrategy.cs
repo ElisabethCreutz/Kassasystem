@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Kassasystem1.MenuClasses
 {
-    internal class Menu
+    internal class MenuStrategy
     {
         private int SelectedIndex;
         private string[] Options;
         private string Prompt;
 
-        public Menu(string prompt, string[] options)
+        public MenuStrategy(string prompt, string[] options)
         {
             Prompt = prompt;
             Options = options;

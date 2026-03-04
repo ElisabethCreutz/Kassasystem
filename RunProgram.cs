@@ -12,8 +12,7 @@ namespace Kassasystem1
         {
             WriteToProductFile.CheckProductFile();
             Visuals.Intro();
-
-            Visuals.Title();
+            Console.Clear();
             MainMenu.RunMainMenu();
 
             Console.Clear();
