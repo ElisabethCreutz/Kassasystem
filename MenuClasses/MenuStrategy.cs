@@ -26,8 +26,6 @@ namespace Kassasystem1.MenuClasses
                 if (i == SelectedIndex)
                 {
                     colour = "\u001b[32m";
-                    //eller backgroundcolor/foregroundcolor olika
-                    //se https://www.youtube.com/watch?v=qAWhGEPMlS8 at 24:34
                 }
                 else
                 {

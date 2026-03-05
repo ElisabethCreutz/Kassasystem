@@ -1,7 +1,7 @@
-10;Bananer;29,90;kg
+10;Bananer;29,50;kg
 20;Mjölk;15,50;st
 30;Sopkvast;99,5;st
 40;Bröd;35;st
 50;Vetemjöl;19,50;st
 60;Spagetti;22;st
-70;Päron;27,50;kg
+70;Päron;27,50;st

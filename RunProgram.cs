@@ -1,4 +1,5 @@
-﻿using Kassasystem1.MenuClasses;
+﻿using Kassasystem1.FileIO;
+using Kassasystem1.MenuClasses;
 using Kassasystem1.Products;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,6 @@ namespace Kassasystem1
 
             Console.Clear();
             Console.WriteLine("Tack för besöket och välkommen åter!");
-            WriteToProductFile.WriteProductStringListToFile(ProductDisplay.ConvertProductListToString());
             Thread.Sleep(2000);
         }
     }

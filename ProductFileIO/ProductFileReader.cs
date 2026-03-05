@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Kassasystem1.Products;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Kassasystem1.Products
+namespace Kassasystem1.FileIO
 {
-    internal class ProductFileReader
+    public class ProductFileReader
     {
         public static string filepathProductList = "../../../Documents/ProductList/ProductList.txt";
         public static void ConvertProductFileToProductList()

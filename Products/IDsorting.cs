@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Kassasystem1.Products
 {
-    internal class IDsorting
+    public class IDsorting
     {
         public static Product SelectedProduct { get; set; }
         public static int GetRecentProductId()
@@ -17,11 +17,12 @@ namespace Kassasystem1.Products
             }
             idList.Sort();
             var last = idList.Count - 1;
-            return last;
+            return idList[last];
         }
         public static Product GetProductFromId(int id)
         {
-            SelectedProduct = ProductDisplay.mainProductList.First(p => p.ProductId == id);
+            //SelectedProduct = ProductDisplay.mainProductList.First(p => p.ProductId == id);
+            SelectedProduct = ProductDisplay.mainProductList.Find(item => item.ProductId.Equals(id));
             return SelectedProduct;
         }
     }

@@ -1,4 +1,5 @@
-﻿using Kassasystem1.PreviousOrTesting;
+﻿using Kassasystem1.FileIO;
+using Kassasystem1.PreviousOrTesting;
 using Kassasystem1.Products;
 using Kassasystem1.Purchase;
 using System;
@@ -15,7 +16,7 @@ namespace Kassasystem1.MenuClasses
             while (runningStore)
             {
                 string prompt = "Välkommen till Gamla Bettans matbutik";
-                string[] options = { "Genomför köp", "Visa produktlistan", "Redigera produktlistan", "Ändra kampanjer", "Avsluta" };
+                string[] options = { "Genomför köp", "Redigera produktlistan", "Ändra kampanjer", "Avsluta" };
                 MenuStrategy mainMenu = new MenuStrategy(prompt, options);
                 int userChoice = mainMenu.RunMenu();
 
@@ -25,16 +26,14 @@ namespace Kassasystem1.MenuClasses
                         Purchasing.NewPurchase();
                         break;
                     case 1:
-                        ProductDisplay.ShowProductList();
-                        Console.ReadKey();
+                        MenuForProducts.RunEditProductsMenu();
+
                         break;
                     case 2:
-                        MenuForProducts.RunEditProductsMenu();
-                        break;
-                    case 3:
                         MiscClass.FeatureDoesNotExist();
                         break;
-                    case 4:
+                    case 3:
+                        WriteToProductFile.WriteProductStringListToFile(ProductDisplay.ConvertProductListToString());
                         runningStore = false;
                         break;
                 }

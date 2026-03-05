@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kassasystem1.Products
+namespace Kassasystem1.FileIO
 {
     internal class WriteToProductFile
     {

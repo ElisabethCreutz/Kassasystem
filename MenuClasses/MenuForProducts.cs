@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Kassasystem1.MenuClasses
 {
-    internal class MenuForProducts
+    public class MenuForProducts
     {
         public static void RunEditProductsMenu()
         {
@@ -24,7 +24,8 @@ namespace Kassasystem1.MenuClasses
                     EditProductList.AddNewProduct();
                     break;
                 case 2:
-                    EditProductList.EditProduct();
+                    Console.Clear();
+                    MenuProductPart.EditMenu(EditProductList.ProductSearch());
                     break;
                 case 3:
                     EditProductList.DeleteProduct();

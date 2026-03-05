@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Kassasystem1.Products;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Kassasystem1.Products
+namespace Kassasystem1.Actions
 {
-    internal class ProductUserInputControl
+    internal class UserInputControl
     {
         public static string CheckProductNameInput()
         {
@@ -58,18 +60,17 @@ namespace Kassasystem1.Products
         public static int CheckProductID()
         {
             int id = CheckIntInput();
-            
-                try
-                {
-                    ProductDisplay.mainProductList.First(p => p.ProductId == id);
-                }
-                catch {
-                    id = 0;
-                    Console.WriteLine("ProduktId finns inte, försök igen.");
 
-                }
+            Product testProduct = ProductDisplay.mainProductList.Find(item => item.ProductId.Equals(id));
+            if (testProduct == null)
+            {
+                id = 0;
+                Console.WriteLine("ProduktId finns inte, försök igen.");
+            }
+            else
+            { id = testProduct.ProductId; }
             return id;
-                   }
+        }
         public static int CheckIntInput()
         {
             int number = 0;

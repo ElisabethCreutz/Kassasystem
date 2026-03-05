@@ -1,9 +1,10 @@
 ﻿
+using Kassasystem1.Actions;
 using Kassasystem1.Products;
 
 namespace Kassasystem1.MenuClasses
 {
-    internal class MenuProductPart
+    public class MenuProductPart
     {
         public static void EditMenu(Product product)
         {
@@ -15,26 +16,13 @@ namespace Kassasystem1.MenuClasses
             switch (userChoice)
             {
                 case 0:
-                    Console.WriteLine($"Nuvarande namn är: {product.ProductName}.");
-                    var newName = ProductUserInputControl.CheckProductNameInput();
-                    product.ProductName = newName;
-                    Console.WriteLine($"Namnet har ändrats till: {product.ProductName}.");
-                    Console.ReadKey();
+                    EditProductList.EditProductName(product);
                     break;
                 case 1:
-                    Console.WriteLine($"Nuvarande pris är: {product.ProductPrice}.");
-                    var newPrice=ProductUserInputControl.CheckProductPriceInput();
-                    product.ProductPrice = newPrice;
-                    Console.WriteLine($"Det nya priset är (tostring) {product.ProductPrice.ToString()} kr");
-
-                    Console.WriteLine($"Det nya priset är (endast dec) {product.ProductPrice} kr");
+                    EditProductList.EditProductPrice(product);
                     break;
                 case 2:
-                    Console.WriteLine($"Nuvarande pristyp är: {product.ProductPriceType}. Ange ny typ:");
-                    var newType=ProductUserInputControl.CheckProductTypeInput();
-                    product.ProductPriceType = newType;
-                    Console.WriteLine($"Den nya pristypen är {product.ProductPriceType}.");
-                    
+                    EditProductList.EditProductPriceType(product);                    
                     break;
                 case 3:
                     break;
