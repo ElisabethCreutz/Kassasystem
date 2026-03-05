@@ -1,7 +1,4 @@
 ﻿using Kassasystem1.Products;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kassasystem1.Purchase
 {
@@ -16,9 +13,9 @@ namespace Kassasystem1.Purchase
         {
             ID = id;
             NumberOfItem = amount;
-            Name = IDsorting.GetProductFromId(id).ProductName;
-            Price = IDsorting.GetProductFromId(id).ProductPrice;
-            PriceType= IDsorting.GetProductFromId(id).ProductPriceType;
+            Name = ProductIdHandler.GetProductFromId(id).ProductName;
+            Price = ProductIdHandler.GetProductFromId(id).ProductPrice;
+            PriceType = ProductIdHandler.GetProductFromId(id).ProductPriceType;
         }
     }
 }

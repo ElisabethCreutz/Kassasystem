@@ -1,8 +1,4 @@
 ﻿using Kassasystem1.Products;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace Kassasystem1.FileIO
 {

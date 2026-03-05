@@ -2,9 +2,6 @@
 using Kassasystem1.PreviousOrTesting;
 using Kassasystem1.Products;
 using Kassasystem1.Purchase;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kassasystem1.MenuClasses
 {

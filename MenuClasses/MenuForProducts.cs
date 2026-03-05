@@ -1,7 +1,4 @@
 ﻿using Kassasystem1.Products;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kassasystem1.MenuClasses
 {

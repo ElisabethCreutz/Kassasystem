@@ -1,9 +1,5 @@
 ﻿using Kassasystem1.FileIO;
 using Kassasystem1.MenuClasses;
-using Kassasystem1.Products;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Kassasystem1
 {

@@ -1,6 +1,4 @@
-﻿
-using Kassasystem1.Actions;
-using Kassasystem1.Products;
+﻿using Kassasystem1.Products;
 
 namespace Kassasystem1.MenuClasses
 {
@@ -22,7 +20,7 @@ namespace Kassasystem1.MenuClasses
                     EditProductList.EditProductPrice(product);
                     break;
                 case 2:
-                    EditProductList.EditProductPriceType(product);                    
+                    EditProductList.EditProductPriceType(product);
                     break;
                 case 3:
                     break;

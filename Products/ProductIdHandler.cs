@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Kassasystem1.Products
+﻿namespace Kassasystem1.Products
 {
-    public class IDsorting
+    public class ProductIdHandler
     {
         public static Product SelectedProduct { get; set; }
         public static int GetRecentProductId()
@@ -21,7 +16,6 @@ namespace Kassasystem1.Products
         }
         public static Product GetProductFromId(int id)
         {
-            //SelectedProduct = ProductDisplay.mainProductList.First(p => p.ProductId == id);
             SelectedProduct = ProductDisplay.mainProductList.Find(item => item.ProductId.Equals(id));
             return SelectedProduct;
         }

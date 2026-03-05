@@ -1,9 +1,4 @@
 ﻿using Kassasystem1.Products;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Kassasystem1.Actions

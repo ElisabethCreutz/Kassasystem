@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Kassasystem1.FileIO
+﻿namespace Kassasystem1.FileIO
 {
     internal class WriteToProductFile
     {

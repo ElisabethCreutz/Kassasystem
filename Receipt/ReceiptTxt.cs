@@ -1,53 +1,49 @@
-﻿using Kassasystem1.FileIO;
-using Kassasystem1.Purchase;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Kassasystem1.Purchase;
 
 namespace Kassasystem1.Receipt
 {
     internal class ReceiptTxt : IReceipt
     {
-        public static string ReceiptDate = DateTime.Now.ToShortDateString();
-        public static string receiptFilePath = $"../../../Documents/ReceiptFiles/Kvitto{ReceiptDate}.txt";
-        private static bool fileExists = false;
-        private static decimal sum;
-        private static int ReceiptNo = 0;
+        public static string _receiptDate = DateTime.Now.ToShortDateString();
+        public static string _receiptFilePath = $"../../../Documents/ReceiptFiles/Kvitto{_receiptDate}.txt";
+        private static bool _fileExists = false;
+        private static decimal _sum;
+        private static int _receiptNo = 0;
 
         static int GetReceiptNo()
         {
             CheckReceiptFile();
-            if (fileExists == false)
-            { ReceiptNo++; }
-            else if (fileExists == true)
+            if (_fileExists == false)
+            { _receiptNo++; }
+            else if (_fileExists == true)
             {
-                ReceiptNo = GetRecentReceiptNo();
-                ReceiptNo++;
+                _receiptNo = GetRecentReceiptNo();
+                _receiptNo++;
             }
-            return ReceiptNo;
+            return _receiptNo;
         }
         static void CheckReceiptFile()
         {
-            if (File.Exists(receiptFilePath)) { fileExists = true; }
-            else { fileExists = false; }
+            if (File.Exists(_receiptFilePath)) { _fileExists = true; }
+            else { _fileExists = false; }
         }
         public static void Write(List<PurchaseItem> purchaseItems)
         {
             GetReceiptNo();
             CheckReceiptFile();
 
-            using (StreamWriter writing = new StreamWriter(receiptFilePath, append: fileExists))
+            using (StreamWriter writing = new StreamWriter(_receiptFilePath, append: _fileExists))
             {
                 writing.WriteLine($"\nGamla Bettans mataffär");
                 writing.WriteLine(DateTime.Now.ToString());
-                writing.WriteLine($"Kvittonummer: {ReceiptNo}\n");
-                
+                writing.WriteLine($"Kvittonummer: {_receiptNo}\n");
+
                 foreach (PurchaseItem item in purchaseItems)
                 {
                     writing.WriteLine($"\t{item.Name} {item.NumberOfItem} st à {item.Price} kr/{item.PriceType}= {item.Price * item.NumberOfItem} kr");
-                    sum = sum + (item.Price * item.NumberOfItem);
+                    _sum = _sum + (item.Price * item.NumberOfItem);
                 }
-                writing.WriteLine($"\nTotalsumma: {sum} kr");
+                writing.WriteLine($"\nTotalsumma: {_sum} kr");
                 writing.WriteLine("\nTack för köpet och välkommen åter!\n ******************************");
 
                 Console.WriteLine("\nKvittot skrivs ut, tack för köpet!");
@@ -56,7 +52,7 @@ namespace Kassasystem1.Receipt
         }
         public static int GetRecentReceiptNo()
         {
-            var lines = File.ReadAllLines(receiptFilePath);
+            var lines = File.ReadAllLines(_receiptFilePath);
             List<int> number = new();
             for (int index = 0; index < lines.Length; index++)
             {

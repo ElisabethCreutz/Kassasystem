@@ -36,7 +36,7 @@ namespace Kassasystem1.Products
             }
             else
             {
-                LastUsedProductId = IDsorting.GetRecentProductId();
+                LastUsedProductId = ProductIdHandler.GetRecentProductId();
             }
             return LastUsedProductId;
         }

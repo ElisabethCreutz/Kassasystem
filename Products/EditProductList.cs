@@ -1,9 +1,4 @@
 ﻿using Kassasystem1.Actions;
-using Kassasystem1.MenuClasses;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Transactions;
 
 namespace Kassasystem1.Products
 {
@@ -44,7 +39,7 @@ namespace Kassasystem1.Products
                 userID = UserInputControl.CheckProductID();
             }
             while (userID == 0);
-            Product selectedProduct = IDsorting.GetProductFromId(userID);
+            Product selectedProduct = ProductIdHandler.GetProductFromId(userID);
             return selectedProduct;
         }
 

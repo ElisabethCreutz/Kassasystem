@@ -1,13 +1,7 @@
 ﻿using Kassasystem1.Actions;
 using Kassasystem1.MenuClasses;
-using Kassasystem1.PreviousOrTesting;
 using Kassasystem1.Products;
 using Kassasystem1.Receipt;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Diagnostics.CodeAnalysis;
-using System.Text;
 
 namespace Kassasystem1.Purchase
 {
