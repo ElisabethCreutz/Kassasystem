@@ -36,7 +36,9 @@ namespace Kassasystem1.Products
             do
             {
                 Console.WriteLine("\nSkriv produktId för produkten du vill välja:");
-                userID = UserInputControl.CheckProductID();
+                string userReply= Console.ReadLine();
+                userID = UserInputControl.CheckIntInput(userReply);
+                userID= UserInputControl.CheckProductID(userID);
             }
             while (userID == 0);
             Product selectedProduct = ProductIdHandler.GetProductFromId(userID);

@@ -52,34 +52,63 @@ namespace Kassasystem1.Actions
             while (type != "kg" && type != "st");
             return type;
         }
-        public static int CheckProductID()
+        public static int CheckProductID(int idInput)
         {
-            int id = CheckIntInput();
 
-            Product testProduct = ProductDisplay.mainProductList.Find(item => item.ProductId.Equals(id));
+            Product testProduct = ProductDisplay.mainProductList.Find(item => item.ProductId.Equals(idInput));
             if (testProduct == null)
             {
-                id = 0;
+                idInput = 0;
                 Console.WriteLine("ProduktId finns inte, försök igen.");
             }
             else
-            { id = testProduct.ProductId; }
-            return id;
+            { idInput = testProduct.ProductId; }
+            return idInput;
         }
-        public static int CheckIntInput()
+        public static int CheckIntInput(string userInput)
         {
             int number = 0;
+
+            try
+            {
+                number = Convert.ToInt32(userInput);
+            }
+            catch { Console.WriteLine("Något gick fel, försök igen."); }
+
+            return number;
+        }
+        public static List<int> StringSeparation()
+        {
+            Regex stringReg = new Regex(@"^(\d+)\s+(\d+)$");
+            string input;
+            Match? checkReg;
             do
             {
-                string userinput = Console.ReadLine();
+                Console.WriteLine("\nSkriv in <ID> mellanslag <antal>");
+                input = Console.ReadLine();
+                checkReg = stringReg.Match(input);
+                if (!checkReg.Success)
+                {
+                    Console.WriteLine("Du skrev nog fel, försök igen.");
+                }
+            }
+            while (!checkReg.Success);
+            string[] inputParts = input.Split(' ');
+            List<int> values = new List<int>();
+            foreach (string s in inputParts)
+            {
                 try
                 {
-                    number = Convert.ToInt32(userinput);
+                    s.Trim();
+                    var x = Convert.ToInt32(s);
+                    values.Add(x);
                 }
-                catch { Console.WriteLine("Något gick fel, försök igen."); }
+                catch
+                {
+                    Console.WriteLine("Något gick fel, försök igen.");
+                }
             }
-            while (number == 0);
-            return number;
+            return values;
         }
     }
 }

@@ -1,18 +1,25 @@
 ﻿using Kassasystem1.Purchase;
+using System.Data;
+using System.Text.RegularExpressions;
+using System.Xml.Linq;
 
 namespace Kassasystem1.Receipt
 {
     internal class ReceiptTxt : IReceipt
     {
-        public static string _receiptDate = DateTime.Now.ToShortDateString();
-        public static string _receiptFilePath = $"../../../Documents/ReceiptFiles/Kvitto{_receiptDate}.txt";
+        public static string ReceiptDate = DateTime.Now.ToShortDateString().Replace("-", "");
+        public static string _receiptFilePath = $"../../../Documents/ReceiptFiles/RECEIPT_{ReceiptDate}.txt";
         private static bool _fileExists = false;
         private static decimal _sum;
         private static int _receiptNo = 0;
 
+
+
         static int GetReceiptNo()
         {
-            CheckReceiptFile();
+            if (File.Exists(_receiptFilePath)) { _fileExists = true; }
+            else { _fileExists = false; }
+
             if (_fileExists == false)
             { _receiptNo++; }
             else if (_fileExists == true)
@@ -22,15 +29,10 @@ namespace Kassasystem1.Receipt
             }
             return _receiptNo;
         }
-        static void CheckReceiptFile()
-        {
-            if (File.Exists(_receiptFilePath)) { _fileExists = true; }
-            else { _fileExists = false; }
-        }
         public static void Write(List<PurchaseItem> purchaseItems)
         {
+
             GetReceiptNo();
-            CheckReceiptFile();
 
             using (StreamWriter writing = new StreamWriter(_receiptFilePath, append: _fileExists))
             {

@@ -14,6 +14,7 @@ namespace Kassasystem1.Purchase
             currentPurchase.Clear();
             ConsoleKey keyPressed;
             var id = 0;
+            var amount = 0;
             do
             {
                 Console.Clear();
@@ -23,12 +24,15 @@ namespace Kassasystem1.Purchase
                 Purchaselist();
                 do
                 {
-                    Console.Write("\nVaruid: ");
-                    id = UserInputControl.CheckProductID();
+                    List<int> values = UserInputControl.StringSeparation();
+                    id = values[0];
+                    amount = values[1];
+
+                    id = UserInputControl.CheckProductID(id);
                 }
                 while (id == 0);
-                Console.Write("Antal: ");
-                var amount = UserInputControl.CheckIntInput();
+
+
                 currentPurchase.Add(new PurchaseItem(id, amount));
                 Console.Write("Tryck <Enter> lägg till ny vara, <Blanksteg> betala, <Esc> avbryt köpet.");
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);

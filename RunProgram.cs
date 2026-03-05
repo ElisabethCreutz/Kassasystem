@@ -1,5 +1,6 @@
 ﻿using Kassasystem1.FileIO;
 using Kassasystem1.MenuClasses;
+using Kassasystem1.Receipt;
 
 namespace Kassasystem1
 {
