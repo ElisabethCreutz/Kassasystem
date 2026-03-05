@@ -24,7 +24,7 @@ namespace Kassasystem1.Receipt
             { _receiptNo++; }
             else if (_fileExists == true)
             {
-                _receiptNo = GetRecentReceiptNo();
+                //_receiptNo = GetRecentReceiptNo();
                 _receiptNo++;
             }
             return _receiptNo;

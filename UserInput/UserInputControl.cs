@@ -1,4 +1,6 @@
 ﻿using Kassasystem1.Products;
+using Kassasystem1.Purchase;
+using System.ComponentModel.Design;
 using System.Text.RegularExpressions;
 
 namespace Kassasystem1.Actions
@@ -77,24 +79,13 @@ namespace Kassasystem1.Actions
 
             return number;
         }
-        public static List<int> StringSeparation()
+        public static List<int> StringSeparation(string input)
         {
-            Regex stringReg = new Regex(@"^(\d+)\s+(\d+)$");
-            string input;
-            Match? checkReg;
-            do
-            {
-                Console.WriteLine("\nSkriv in <ID> mellanslag <antal>");
-                input = Console.ReadLine();
-                checkReg = stringReg.Match(input);
-                if (!checkReg.Success)
-                {
-                    Console.WriteLine("Du skrev nog fel, försök igen.");
-                }
-            }
-            while (!checkReg.Success);
-            string[] inputParts = input.Split(' ');
             List<int> values = new List<int>();
+
+
+            string[] inputParts = input.Split(' ');
+
             foreach (string s in inputParts)
             {
                 try
@@ -108,7 +99,46 @@ namespace Kassasystem1.Actions
                     Console.WriteLine("Något gick fel, försök igen.");
                 }
             }
+
             return values;
+
         }
+        public static bool CheckPay(string input)
+        {
+
+            if (input.ToLower() == "pay")
+            {
+                if (Purchasing.currentPurchase.Count == 0)
+                {
+                    Console.WriteLine("Nu köper du ju ingenting men jag spelar med.");
+                    Thread.Sleep(1000);
+                }
+                Purchasing.CompletePurchase();
+                return false;
+
+            }
+            else
+                return true;
+
+        }
+        public static bool CheckRegex(string input)
+        {
+            Regex stringReg = new Regex(@"^(\d+)\s+(\d+)$");
+            Match? checkReg;
+
+            checkReg = stringReg.Match(input);
+            if (!checkReg.Success)
+            {
+                Console.WriteLine("Du skrev nog fel, försök igen.");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
     }
 }
+

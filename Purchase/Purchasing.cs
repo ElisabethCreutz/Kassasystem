@@ -12,10 +12,10 @@ namespace Kassasystem1.Purchase
         {
             Console.Clear();
             currentPurchase.Clear();
-            ConsoleKey keyPressed;
+            bool buying = true;
             var id = 0;
             var amount = 0;
-            do
+            while (id != 1)
             {
                 Console.Clear();
                 ProductDisplay.ShowProductList();
@@ -24,25 +24,36 @@ namespace Kassasystem1.Purchase
                 Purchaselist();
                 do
                 {
-                    List<int> values = UserInputControl.StringSeparation();
-                    id = values[0];
-                    amount = values[1];
+                    Console.WriteLine("\nSkriv in <ID> mellanslag <antal> eller skriv <PAY> för att betala");
+                    string inputString = Console.ReadLine();
+                    buying = UserInputControl.CheckPay(inputString);
+                    if (buying)
+                    {
+                        buying = UserInputControl.CheckRegex(inputString);
+                        if (buying)
+                        {
+                            List<int> values = UserInputControl.StringSeparation(inputString);
+                            id = values[0];
+                            amount = values[1];
+                            if (amount == 0)
+                            { amount++; }
+                            id = UserInputControl.CheckProductID(id);
+                            if (id!=0)
+                            {
+                                currentPurchase.Add(new PurchaseItem(id, amount));
+                            }
+                        }
+                    }
+                    else
+                    {
+                        id = 1;
+                    }
 
-                    id = UserInputControl.CheckProductID(id);
                 }
                 while (id == 0);
 
-
-                currentPurchase.Add(new PurchaseItem(id, amount));
-                Console.Write("Tryck <Enter> lägg till ny vara, <Blanksteg> betala, <Esc> avbryt köpet.");
-                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-                keyPressed = keyInfo.Key;
             }
-            while (keyPressed != ConsoleKey.Escape && keyPressed != ConsoleKey.Spacebar);
-            if (keyPressed == ConsoleKey.Escape)
-                CancelPurchase();
-            else if (keyPressed == ConsoleKey.Spacebar)
-                CompletePurchase();
+
         }
         public static void CompletePurchase()
         {
