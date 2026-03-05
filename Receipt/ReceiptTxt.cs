@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Kassasystem1.Receipt
 {
-    internal class ReceiptTxt
+    internal class ReceiptTxt : IReceipt
     {
         public static string ReceiptDate = DateTime.Now.ToShortDateString();
         public static string receiptFilePath = $"../../../Documents/ReceiptFiles/Kvitto{ReceiptDate}.txt";

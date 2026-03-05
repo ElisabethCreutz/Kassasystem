@@ -7,8 +7,16 @@ namespace Kassasystem1.Receipt
 {
     public interface IReceipt
     {
-        //public string ReceiptDate {  get; }
-        void CheckReceiptFile();
-        void Write(List<PurchaseItem> purchaseItems);
+        public static string ReceiptDate = DateTime.Now.ToShortDateString();
+        public static string receiptFilePath = $"../../../Documents/ReceiptFiles/Kvitto{ReceiptDate}.txt";
+        private static bool fileExists;
+        private static decimal sum;
+        private static int ReceiptNo = 0;
+        static void CheckReceiptFile() { }
+        static void Write(List<PurchaseItem> purchaseItems) { }
+        static int GetRecentReceiptNo()
+        {
+            return 0;
+        }
     }
 }
