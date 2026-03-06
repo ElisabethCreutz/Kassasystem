@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Kassasystem1.Products
+﻿namespace Kassasystem1.Products
 {
     public class Product
     {
@@ -18,7 +14,6 @@ namespace Kassasystem1.Products
             ProductName = productName;
             ProductPrice = price;
             ProductPriceType = productPriceType;
-
         }
         public Product(int productId, string productName, decimal productPrice, string productPriceType)
         {
@@ -27,7 +22,6 @@ namespace Kassasystem1.Products
             ProductPrice = productPrice;
             ProductPriceType = productPriceType;
         }
-
         public static int SetLastUsedProductId()
         {
             if (ProductDisplay.mainProductList.Count == 0)
@@ -40,8 +34,5 @@ namespace Kassasystem1.Products
             }
             return LastUsedProductId;
         }
-
-
-
     }
 }

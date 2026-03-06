@@ -10,7 +10,6 @@ namespace Kassasystem1.MenuClasses
             string[] options = { "Produktnamn", "Pris", "Pristyp", "Tillbaka till huvudmenyn" };
             MenuStrategy prodMenu = new MenuStrategy(prompt, options);
             int userChoice = prodMenu.RunMenu();
-
             switch (userChoice)
             {
                 case 0:
@@ -25,8 +24,6 @@ namespace Kassasystem1.MenuClasses
                 case 3:
                     break;
             }
-
-
         }
     }
 }

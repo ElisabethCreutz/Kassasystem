@@ -1,20 +1,14 @@
 ﻿using Kassasystem1.Purchase;
-using System.Data;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
 
 namespace Kassasystem1.Receipt
 {
-    internal class ReceiptTxt : IReceipt
+    public class ReceiptTxt : IReceipt
     {
         public static string ReceiptDate = DateTime.Now.ToShortDateString().Replace("-", "");
         public static string _receiptFilePath = $"../../../Documents/ReceiptFiles/RECEIPT_{ReceiptDate}.txt";
         private static bool _fileExists = false;
         private static decimal _sum;
         private static int _receiptNo = 0;
-
-
-
         static int GetReceiptNo()
         {
             if (File.Exists(_receiptFilePath)) { _fileExists = true; }
@@ -24,16 +18,14 @@ namespace Kassasystem1.Receipt
             { _receiptNo++; }
             else if (_fileExists == true)
             {
-                //_receiptNo = GetRecentReceiptNo();
+                _receiptNo = GetRecentReceiptNo();
                 _receiptNo++;
             }
             return _receiptNo;
         }
         public static void Write(List<PurchaseItem> purchaseItems)
         {
-
             GetReceiptNo();
-
             using (StreamWriter writing = new StreamWriter(_receiptFilePath, append: _fileExists))
             {
                 writing.WriteLine($"\nGamla Bettans mataffär");
@@ -42,7 +34,8 @@ namespace Kassasystem1.Receipt
 
                 foreach (PurchaseItem item in purchaseItems)
                 {
-                    writing.WriteLine($"\t{item.Name} {item.NumberOfItem} st à {item.Price} kr/{item.PriceType}= {item.Price * item.NumberOfItem} kr");
+                    writing.WriteLine($"\t{item.Name} {item.NumberOfItem} st à " +
+                        $"{item.Price} kr/{item.PriceType}= {item.Price * item.NumberOfItem} kr");
                     _sum = _sum + (item.Price * item.NumberOfItem);
                 }
                 writing.WriteLine($"\nTotalsumma: {_sum} kr");

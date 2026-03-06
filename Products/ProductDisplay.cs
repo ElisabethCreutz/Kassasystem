@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Headers;
-
-namespace Kassasystem1.Products
+﻿namespace Kassasystem1.Products
 {
     public class ProductDisplay
     {
@@ -15,7 +13,6 @@ namespace Kassasystem1.Products
                 Console.WriteLine($"\tID {item.ProductId}: {item.ProductName} kostar {item.ProductPrice} per {item.ProductPriceType}");
             }
         }
-
         public static List<string> ConvertProductListToString()
         {
             List<string> stringList = new();
@@ -26,7 +23,5 @@ namespace Kassasystem1.Products
             }
             return stringList;
         }
-
-
     }
 }

@@ -1,7 +1,8 @@
 ﻿using Kassasystem1.Actions;
-using Kassasystem1.MenuClasses;
+using Kassasystem1.MainProgram;
 using Kassasystem1.Products;
 using Kassasystem1.Receipt;
+using Kassasystem1.UserInput;
 
 namespace Kassasystem1.Purchase
 {
@@ -20,25 +21,24 @@ namespace Kassasystem1.Purchase
                 Console.Clear();
                 ProductDisplay.ShowProductList();
                 Console.WriteLine("\nSkriv in produktid och antal varor du vill lägga till i köpet:\n");
-
                 Purchaselist();
                 do
                 {
                     Console.WriteLine("\nSkriv in <ID> mellanslag <antal> eller skriv <PAY> för att betala");
                     string inputString = Console.ReadLine();
-                    buying = UserInputControl.CheckPay(inputString);
+                    buying = PurchaseInputControl.CheckPay(inputString);
                     if (buying)
                     {
-                        buying = UserInputControl.CheckRegex(inputString);
+                        buying = PurchaseInputControl.CheckRegex(inputString);
                         if (buying)
                         {
-                            List<int> values = UserInputControl.StringSeparation(inputString);
+                            List<int> values = PurchaseInputControl.StringSeparation(inputString);
                             id = values[0];
                             amount = values[1];
                             if (amount == 0)
                             { amount++; }
-                            id = UserInputControl.CheckProductID(id);
-                            if (id!=0)
+                            id = ProductInputControl.CheckProductID(id);
+                            if (id != 0)
                             {
                                 currentPurchase.Add(new PurchaseItem(id, amount));
                             }
@@ -48,12 +48,9 @@ namespace Kassasystem1.Purchase
                     {
                         id = 1;
                     }
-
                 }
                 while (id == 0);
-
             }
-
         }
         public static void CompletePurchase()
         {
@@ -70,32 +67,27 @@ namespace Kassasystem1.Purchase
             if (userinput == "kort")
             {
                 Console.Write("*Köpet behandlas");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 Console.Write(".");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 Console.Write(".");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 Console.WriteLine(".*");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 ReceiptTxt.Write(currentPurchase);
             }
             else
             {
                 Console.Write("*Kassapersonalen räknar huvudräkning");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 Console.Write(".");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 Console.Write(".");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 Console.WriteLine(".*");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 ReceiptTxt.Write(currentPurchase);
             }
-        }
-        public static void CancelPurchase()
-        {
-            Console.WriteLine("Köpet har avbrutits");
-            MainMenu.RunMainMenu();
         }
         public static void Purchaselist()
         {

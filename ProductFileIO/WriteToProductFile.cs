@@ -1,6 +1,6 @@
 ﻿namespace Kassasystem1.FileIO
 {
-    internal class WriteToProductFile
+    public class WriteToProductFile
     {
         public static void WriteProductStringListToFile(List<string> stringList)
         {

@@ -10,7 +10,6 @@ namespace Kassasystem1.MenuClasses
             string[] options = { "Visa produktlistan", "Lägg till ny produkt", "Ändra befintlig produkt", "Ta bort produkt", "Tillbaka till huvudmenyn" };
             MenuStrategy prodMenu = new MenuStrategy(prompt, options);
             int userChoice = prodMenu.RunMenu();
-
             switch (userChoice)
             {
                 case 0:
@@ -30,11 +29,7 @@ namespace Kassasystem1.MenuClasses
                 case 4:
                     Console.WriteLine("Tillbaka till huvudmenyn");
                     break;
-
             }
-
         }
-
     }
 }
-

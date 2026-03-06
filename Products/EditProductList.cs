@@ -1,4 +1,5 @@
 ﻿using Kassasystem1.Actions;
+using Kassasystem1.MainProgram;
 
 namespace Kassasystem1.Products
 {
@@ -6,19 +7,17 @@ namespace Kassasystem1.Products
     {
         public static void AddNewProduct()
         {
-
             string name = "";
             decimal price;
             string type;
             string answer;
-
             do
             {
                 Console.Clear();
                 Visuals.Title();
-                name = UserInputControl.CheckProductNameInput();
-                price = UserInputControl.CheckProductPriceInput();
-                type = UserInputControl.CheckProductTypeInput();
+                name = ProductInputControl.CheckProductNameInput();
+                price = ProductInputControl.CheckProductPriceInput();
+                type = ProductInputControl.CheckProductTypeInput();
                 Product newProduct = new Product(name, price, type);
                 newProduct.ProductId = Product.SetLastUsedProductId() + 10;
                 ProductDisplay.mainProductList.Add(newProduct);
@@ -27,7 +26,6 @@ namespace Kassasystem1.Products
             }
             while (answer != "no");
             return;
-
         }
         public static Product ProductSearch()
         {
@@ -37,29 +35,32 @@ namespace Kassasystem1.Products
             {
                 Console.WriteLine("\nSkriv produktId för produkten du vill välja:");
                 string userReply= Console.ReadLine();
-                userID = UserInputControl.CheckIntInput(userReply);
-                userID= UserInputControl.CheckProductID(userID);
+                userID = ProductInputControl.CheckIntInput(userReply);
+                userID= ProductInputControl.CheckProductID(userID);
             }
             while (userID == 0);
             Product selectedProduct = ProductIdHandler.GetProductFromId(userID);
             return selectedProduct;
         }
-
         public static void DeleteProduct()
         {
             Console.Clear();
             Console.WriteLine("Radera en produkt i listan:\n");
             var productTodelete = ProductSearch();
+            Console.WriteLine("Tryck <Enter> för att fortsätta eller <Escape> för att avbryta");
+            if (Console.ReadKey().Key == ConsoleKey.Escape)
+            {
+                return;
+            }
             ProductDisplay.mainProductList.Remove(productTodelete);
-            Console.WriteLine($"{productTodelete.ProductName} has been deleted.");
+            Console.WriteLine($"{productTodelete.ProductName} har raderats från produktlistan.");
             Console.ReadKey();
-
         }
         public static void EditProductName(Product product)
         {
             Console.Clear();
             Console.WriteLine($"Nuvarande namn är: {product.ProductName}.");
-            var newName = UserInputControl.CheckProductNameInput();
+            var newName = ProductInputControl.CheckProductNameInput();
             product.ProductName = newName;
             Console.WriteLine($"Namnet har ändrats till: {product.ProductName}.");
             Console.ReadKey();
@@ -68,7 +69,7 @@ namespace Kassasystem1.Products
         {
             Console.Clear();
             Console.WriteLine($"Nuvarande pris är: {product.ProductPrice}.");
-            var newPrice = UserInputControl.CheckProductPriceInput();
+            var newPrice = ProductInputControl.CheckProductPriceInput();
             product.ProductPrice = newPrice;
             Console.WriteLine($"Det nya priset är {product.ProductPrice} kr");
             Console.ReadKey();
@@ -77,7 +78,7 @@ namespace Kassasystem1.Products
         {
             Console.Clear();
             Console.WriteLine($"Nuvarande pristyp är: {product.ProductPriceType}. Ange ny typ:");
-            var newType = UserInputControl.CheckProductTypeInput();
+            var newType = ProductInputControl.CheckProductTypeInput();
             product.ProductPriceType = newType;
             Console.WriteLine($"Den nya pristypen är {product.ProductPriceType}.");
             Console.ReadKey();

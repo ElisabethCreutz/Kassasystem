@@ -1,10 +1,9 @@
 ﻿using Kassasystem1.FileIO;
 using Kassasystem1.MenuClasses;
-using Kassasystem1.Receipt;
 
-namespace Kassasystem1
+namespace Kassasystem1.MainProgram
 {
-    internal class RunProgram
+    public class App
     {
         public static void SetupStore()
         {
@@ -12,7 +11,6 @@ namespace Kassasystem1
             Visuals.Intro();
             Console.Clear();
             MainMenu.RunMainMenu();
-
             Console.Clear();
             Console.WriteLine("Tack för besöket och välkommen åter!");
             Thread.Sleep(2000);

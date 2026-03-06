@@ -1,11 +1,12 @@
-﻿namespace Kassasystem1.MenuClasses
+﻿using Kassasystem1.MainProgram;
+
+namespace Kassasystem1.MenuClasses
 {
-    internal class MenuStrategy
+    public class MenuStrategy
     {
         private int SelectedIndex;
         private string[] Options;
         private string Prompt;
-
         public MenuStrategy(string prompt, string[] options)
         {
             Prompt = prompt;
@@ -38,7 +39,6 @@
                 Console.Clear();
                 Visuals.Title();
                 DisplayOptions();
-
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 keyPressed = keyInfo.Key;
 
@@ -57,5 +57,4 @@
             return SelectedIndex;
         }
     }
-
 }

@@ -5,7 +5,7 @@ using Kassasystem1.Purchase;
 
 namespace Kassasystem1.MenuClasses
 {
-    internal class MainMenu
+    public class MainMenu
     {
         public static void RunMainMenu()
         {

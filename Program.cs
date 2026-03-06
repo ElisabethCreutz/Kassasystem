@@ -1,11 +1,12 @@
-﻿namespace Kassasystem1
+﻿using Kassasystem1.MainProgram;
+
+namespace Kassasystem1
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            RunProgram.SetupStore();
+            App.SetupStore();
         }
     }
 }
-

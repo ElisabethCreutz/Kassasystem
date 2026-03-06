@@ -1,6 +1,6 @@
-﻿namespace Kassasystem1
+﻿namespace Kassasystem1.MainProgram
 {
-    internal class Visuals
+    public class Visuals
     {
         public static void Title()
         {
